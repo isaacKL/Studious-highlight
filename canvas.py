@@ -1,6 +1,5 @@
 import requests
 from requests.exceptions import HTTPError
-
 from urllib.parse import urljoin
 import logging
 import time
@@ -26,6 +25,7 @@ class CanvasAPI:
             website_root = "https://{}".format(website_root)
 
         self.website_root = website_root
+        
 
     def _get_request(self, url: str, params: dict = None, attempts: int = 5) -> Tuple[str, str]:
         url = urljoin(self.website_root, url)
@@ -77,31 +77,28 @@ class CanvasAPI:
 
     def get_courses(self):
         result = self._get_all_pages('/api/v1/courses',
-                                            {'enrollment_type': 'student', 'state': ['available']})
+                                            {'state': ['available']})
         
         return result
 
-    def get_assignments(self,course_id):
-        get = lambda x: self._get_all_pages('/api/v1/courses/%s/')
-        result = get('student')
+    def get_assignments(self,course_id:str,date:str):
+        params={}
+        get = lambda x: self._get_all_pages('/api/v1/courses/%s/assignments' %x,params)
+        result = get(course_id)
         return result
 
-    def get_course_students(self, course_id: str):
-        try:
-            params = {
-                'per_page': 50,
-                'enrollment_type': ['student'],
-                'enrollment_state': ['active']
-            }
-            result = self._get_all_pages('/api/v1/courses/%s/users', params)
-            return result
-
-        except HTTPError as e:
-             raise
 
 if __name__=="__main__":
     canvas =CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')
     x=canvas.get_courses()
     for i in range(len(x)):
-        y=x[i]
-        print(y['name']+": "+str(y['id']))
+        temp=x[i]
+        print(temp['name']+": "+str(temp['id']))
+        print()
+        y=canvas.get_assignments(temp['id'])
+        for assignments in y:
+            print(assignments['name'],assignments['due_at'])
+    r = requests.get(canvas.website_root+'/api/v1/users/self', headers=canvas.request_header)
+    r.raise_for_status()
+    canvas.id=r.json()['id']
+    print(canvas.id)

@@ -1,3 +1,30 @@
 body{
-    background-image: url('./image.jpg')/*Placeholder*/
+    background-image: url('../apple.jpg');/*Placeholder*/
+    background-size: contain;
+}
+
+.head{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration-color: white;
+    color:white;
+    float:right;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left:10%;
+    width:25%
+}
+
+#Test{
+    margin-left:10%;
+    width:50%;
+    justify-items: center;
+    text-decoration: underline;
+    text-align: center
+}
+#Homework{
+    margin-left:10%;
+    width:50%;
+    justify-items: center;
+    text-decoration: underline;
+    text-align: center
 }

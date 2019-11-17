@@ -1,14 +1,23 @@
-import ctypes
+from  canvas import CanvasAPI
+import Desktop
+from datetime import datetime
 
-#Use to set desktop image
-SPI_SETDESKWALLPAPER=0x0014
-#Use to set pattern to picture if ever needed
-SPI_SETDESKPATTERN=0x0015 
-#Use this for the flag
-SPI_UPDATEFLAG=0X01
 
-img_path='C:/Users/icmuz/Pictures/Saved Pictures/apple.jpg'
 
-user32 = ctypes.windll.user32
-success=user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER,0,img_path,SPI_UPDATEFLAG)
+today= datetime.strftime('%y-%m-%d')
+homework=[]
+test=[]
+def main():
+    #main stuff
+    canvas=CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')
+    courses=canvas.get_courses()
+    
+    for course in courses:
+        assignments=canvas.get_assignments(course['id'],today)
+        for assignment in assignments:
+            due_date=datetime.strptime(assignment['due_at']-10,"%Y-%m-%d")
+            if due_date>today and due_date<(today+7):
+                homework.append(assignment)
 
+if __name__=='__main__':
+    main()
