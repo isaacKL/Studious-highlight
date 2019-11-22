@@ -1,0 +1,628 @@
+[
+  "1ORXhqhmBQ2urNkiw8LOHeX60yxtjL6QmmmazvZJouEM",
+  {
+    "title": "Grade Sheets Template.xlsx",
+    "locale": "en",
+    "autoRecalc": "ON_CHANGE",
+    "timeZone": "America/Los_Angeles",
+    "defaultFormat": {
+      "backgroundColor": { "red": 1, "green": 1, "blue": 1 },
+      "padding": { "right": 3, "left": 3 },
+      "verticalAlignment": "BOTTOM",
+      "wrapStrategy": "OVERFLOW_CELL",
+      "textFormat": {
+        "foregroundColor": {},
+        "fontFamily": "Calibri",
+        "fontSize": 12,
+        "bold": False,
+        "italic": False,
+        "strikethrough": False,
+        "underline": False
+      }
+    }
+  },
+  [
+    {
+      "properties": {
+        "sheetId": 1823223866,
+        "title": "Math",
+        "index": 0,
+        "sheetType": "GRID",
+        "gridProperties": { "rowCount": 1000, "columnCount": 26 }
+      },
+      "merges": [
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 10,
+          "endRowIndex": 11,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 12,
+          "endRowIndex": 13,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 18,
+          "endRowIndex": 19,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 16,
+          "endRowIndex": 17,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 17,
+          "endRowIndex": 18,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 1,
+          "endRowIndex": 2,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 0,
+          "endRowIndex": 1,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 2,
+          "endRowIndex": 3,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 9,
+          "endRowIndex": 10,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 3,
+          "endRowIndex": 4,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 32,
+          "endRowIndex": 33,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 31,
+          "endRowIndex": 32,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 33,
+          "endRowIndex": 34,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 35,
+          "endRowIndex": 36,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 37,
+          "endRowIndex": 38,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 36,
+          "endRowIndex": 37,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 26,
+          "endRowIndex": 27,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 21,
+          "endRowIndex": 22,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 24,
+          "endRowIndex": 25,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 23,
+          "endRowIndex": 24,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 25,
+          "endRowIndex": 26,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 28,
+          "endRowIndex": 29,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 7,
+          "endRowIndex": 8,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 8,
+          "endRowIndex": 9,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 4,
+          "endRowIndex": 5,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 5,
+          "endRowIndex": 6,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        },
+        {
+          "sheetId": 1823223866,
+          "startRowIndex": 15,
+          "endRowIndex": 16,
+          "startColumnIndex": 2,
+          "endColumnIndex": 8
+        }
+      ],
+      "conditionalFormats": [
+        {
+          "ranges": [
+            {
+              "sheetId": 1823223866,
+              "startRowIndex": 33,
+              "endRowIndex": 34,
+              "startColumnIndex": 1,
+              "endColumnIndex": 2
+            }
+          ],
+          "gradientRule": {
+            "minpoint": {
+              "color": { "red": 1 },
+              "type": "NUMBER",
+              "value": "=$B$33"
+            },
+            "maxpoint": {
+              "color": { "green": 0.5019608 },
+              "type": "NUMBER",
+              "value": "=$B$33"
+            }
+          }
+        },
+        {
+          "ranges": [
+            {
+              "sheetId": 1823223866,
+              "startRowIndex": 37,
+              "endRowIndex": 38,
+              "startColumnIndex": 1,
+              "endColumnIndex": 2
+            }
+          ],
+          "gradientRule": {
+            "minpoint": {
+              "color": { "red": 1 },
+              "type": "NUMBER",
+              "value": "60"
+            },
+            "midpoint": {
+              "color": { "red": 1, "green": 1 },
+              "type": "NUMBER",
+              "value": "80"
+            },
+            "maxpoint": {
+              "color": { "green": 0.5019608 },
+              "type": "NUMBER",
+              "value": "100"
+            }
+          }
+        }
+      ],
+      "protectedRanges": [
+        {
+          "protectedRangeId": 683953724,
+          "range": {
+            "sheetId": 1823223866,
+            "startRowIndex": 0,
+            "endRowIndex": 1000
+          },
+          "description": "Protect",
+          "requestingUserCanEdit": True,
+          "editors": { "users": ["ic77f@umsystem.edu"] }
+        }
+      ]
+    },
+    {
+      "properties": {
+        "sheetId": 813406257,
+        "title": "Running Points Based Class",
+        "index": 1,
+        "sheetType": "GRID",
+        "gridProperties": { "rowCount": 1000, "columnCount": 26 }
+      },
+      "merges": [
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 0,
+          "endRowIndex": 5,
+          "startColumnIndex": 0,
+          "endColumnIndex": 5
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 0,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 25,
+          "endRowIndex": 26,
+          "startColumnIndex": 1,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 4,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 14,
+          "endRowIndex": 15,
+          "startColumnIndex": 5,
+          "endColumnIndex": 7
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 6,
+          "endRowIndex": 7,
+          "startColumnIndex": 8,
+          "endColumnIndex": 11
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 11,
+          "endRowIndex": 12,
+          "startColumnIndex": 9,
+          "endColumnIndex": 11
+        },
+        {
+          "sheetId": 813406257,
+          "startRowIndex": 27,
+          "endRowIndex": 28,
+          "startColumnIndex": 0,
+          "endColumnIndex": 2
+        }
+      ],
+      "protectedRanges": [
+        {
+          "protectedRangeId": 1538692448,
+          "range": {
+            "sheetId": 813406257,
+            "startRowIndex": 0,
+            "endRowIndex": 1000
+          },
+          "description": "Protect",
+          "requestingUserCanEdit": True,
+          "editors": { "users": ["ic77f@umsystem.edu"] }
+        }
+      ]
+    },
+    {
+      "properties": {
+        "sheetId": 2139402488,
+        "title": "Percentage Based Class",
+        "index": 2,
+        "sheetType": "GRID",
+        "gridProperties": { "rowCount": 1000, "columnCount": 26 }
+      },
+      "merges": [
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 0,
+          "endRowIndex": 5,
+          "startColumnIndex": 0,
+          "endColumnIndex": 5
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 0,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 9,
+          "endColumnIndex": 12
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 12,
+          "endColumnIndex": 15
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 15,
+          "endColumnIndex": 18
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 7,
+          "endRowIndex": 12,
+          "startColumnIndex": 2,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 3,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 13,
+          "endRowIndex": 14,
+          "startColumnIndex": 6,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 4,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 4,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 3,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 4,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 32,
+          "endRowIndex": 33,
+          "startColumnIndex": 1,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 33,
+          "endRowIndex": 34,
+          "startColumnIndex": 1,
+          "endColumnIndex": 3
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 4,
+          "endColumnIndex": 6
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 19,
+          "endRowIndex": 20,
+          "startColumnIndex": 10,
+          "endColumnIndex": 12
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 20,
+          "endRowIndex": 21,
+          "startColumnIndex": 10,
+          "endColumnIndex": 12
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 10,
+          "endColumnIndex": 12
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 30,
+          "endRowIndex": 31,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 29,
+          "endRowIndex": 30,
+          "startColumnIndex": 7,
+          "endColumnIndex": 9
+        },
+        {
+          "sheetId": 2139402488,
+          "startRowIndex": 22,
+          "endRowIndex": 23,
+          "startColumnIndex": 6,
+          "endColumnIndex": 9
+        }
+      ],
+      "protectedRanges": [
+        {
+          "protectedRangeId": 1179489055,
+          "range": {
+            "sheetId": 2139402488,
+            "startRowIndex": 0,
+            "endRowIndex": 1000
+          },
+          "description": "Protect",
+          "requestingUserCanEdit": True,
+          "editors": { "users": ["ic77f@umsystem.edu"] }
+        }
+      ]
+    }
+  ],
+  "https://docs.google.com/a/umsystem.edu/spreadsheets/d/1ORXhqhmBQ2urNkiw8LOHeX60yxtjL6QmmmazvZJouEM/edit"
+]
