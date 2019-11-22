@@ -31,17 +31,18 @@ class Sheets:
         self.sheets=self.service.spreadsheets()
 
     def spreadsheet(self):
-        self.gradesheet=self.sheets.create(body={})
-        self.sheet=self.gradesheet.execute()
+        with open('template.json') as template:
+            self.gradesheet=self.sheets.create(body=template).execute()
+            print(self.gradesheet.values()['spreadsheetId'])
         
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
     def cell(self,cell,value=None):
         if value ==  None:
-            print('get')
+            print('No value')
         else:
-            return self.sheet
+            return self.sheets
         # Call the Sheets API
         '''sheet = service.spreadsheets()
         result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,

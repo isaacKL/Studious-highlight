@@ -4,10 +4,15 @@ from urllib.parse import urljoin
 import logging
 import time
 from typing import Tuple
+from datetime import datetime
+import collections
 
 
 # Transparenftly use a common TLS session for each request
 requests = requests.Session()
+
+now=datetime.now()
+today=str(now.strftime('%y-%m-%d'))
 
 class CanvasAPI:
     request_header = {
@@ -25,6 +30,11 @@ class CanvasAPI:
             website_root = "https://{}".format(website_root)
 
         self.website_root = website_root
+        r = requests.get(self.website_root+'/api/v1/users/self', headers=self.request_header)
+        r.raise_for_status()
+        self.id=r.json()['id']
+        print(self.id)
+        
         
 
     def _get_request(self, url: str, params: dict = None, attempts: int = 5) -> Tuple[str, str]:
@@ -33,7 +43,7 @@ class CanvasAPI:
         while tries < attempts:
             try:
                 r = requests.get(url, params=params, headers=self.request_header)
-                r.raise_for_status()
+                r.raise_for_status()                  
                 return (r.json(), r.headers["Link"])
             except HTTPError as e:
                 if e.response is None or e.response.status_code < 500:
@@ -55,6 +65,7 @@ class CanvasAPI:
         :return: The full list of result objects returned by the query
         """
         try:
+
             (result, link_header) = self._get_request(url, params)
 
             count = len(result)
@@ -80,25 +91,37 @@ class CanvasAPI:
                                             {'state': ['available']})
         
         return result
+    
+
 
     def get_assignments(self,course_id:str,date:str):
         params={}
-        get = lambda x: self._get_all_pages('/api/v1/courses/%s/assignments' %x,params)
-        result = get(course_id)
-        return result
+        get = lambda x,y: self._get_all_pages('/api/v1/courses/%(course_id)s/%(object)s' %{'course_id':x,"object":y},params)
+        assignments = get(course_id,'assignments')
+        assign=[]
+        for assignment in assignments:
+            try:
+                score=requests.get(self.website_root+'/api/v1/courses/%(course_id)s/assignments/%(assignment_id)s/submissions/%(user_id)s' %{"course_id":course_id,"assignment_id":assignment['id'],"user_id":self.id},headers=self.request_header)
+                score.raise_for_status()
+                score=score.json()['score']
+                if score!=None:
+                    score=int(score)
+                else:
+                    score=-1
+                assignments=collections.namedtuple("assignments",('name',"points","points_possible"),defaults='0')
+                if assignment['due_at']!=None:
+                        due_date=datetime.strptime(assignment['due_at'][:10],"%Y-%m-%d")
+                        due_date=str(due_date.date())
+                else:
+                    due_date='999999999999'
+                if score>=0 or (int(due_date[5:7])<int(today[5:7]) and int(due_date[8:10])<int(today[8:10])):
+                    name=assignment['name']
+                    
+                    points_possible=assignment['points_possible']
+                    work=assignments(name=name,points_possible=points_possible,points=score)
+                    
+                    assign.append(work)
+            except HTTPError as e:
+                print(e.msg)
+        return assign
 
-
-if __name__=="__main__":
-    canvas =CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')
-    x=canvas.get_courses()
-    for i in range(len(x)):
-        temp=x[i]
-        print(temp['name']+": "+str(temp['id']))
-        print()
-        y=canvas.get_assignments(temp['id'])
-        for assignments in y:
-            print(assignments['name'],assignments['due_at'])
-    r = requests.get(canvas.website_root+'/api/v1/users/self', headers=canvas.request_header)
-    r.raise_for_status()
-    canvas.id=r.json()['id']
-    print(canvas.id)
