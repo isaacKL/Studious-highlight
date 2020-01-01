@@ -1,1 +1,6 @@
-#handle all google calendar 
+#handle all google calendar
+string="'id':%2041222,%20'name':%20'FE%201100-Combined-FS2019',%20'account_id':%201,%20'uuid':%20'c4FT5D0Li4UHeXWsPEIWw2BBf6o34kyFHo8McwCE',%20'start_at':%20'2019-08-19T05:00:00Z',%20'grading_standard_id':%204339,%20'is_public':%20False,%20'created_at':%20'2019-08-12T13:46:30Z',%20'course_code':%20'FE%201100-Combined-FS2019',%20'default_view':%20'wiki',%20'root_account_id':%201,%20'enrollment_term_id':%2090,%20'license':%20'private',%20'grade_passback_setting':%20None,%20'end_at':%20'2019-12-06T06:00:00Z',%20'public_syllabus':%20False,%20'public_syllabus_to_auth':%20False,%20'storage_quota_mb':%20500,%20'is_public_to_auth_users':%20False,%20'apply_assignment_group_weights':%20True,%20'calendar':%20%7B'ics':%20'https://mst.instructure.com/feeds/calendars/course_c4FT5D0Li4UHeXWsPEIWw2BBf6o34kyFHo8McwCE.ics'%7D,%20'time_zone':%20'America/Chicago',%20'blueprint':%20False,%20'enrollments':%20[%7B'type':%20'student',%20'role':%20'StudentEnrollment',%20'role_id':%208,%20'user_id':%2037971,%20'enrollment_state':%20'active',%20'limit_privileges_to_course_section':%20False%7D],%20'hide_final_grades':%20False,%20'workflow_state':%20'available',%20'restrict_enrollments_to_course_dates':%20False,%20'overridden_course_visibility':%20''%7D/group_categories/"
+s=string.replace('%7D',"}")
+s=s.replace("%20"," ")
+s=s.replace("%7B","{")
+print(s)

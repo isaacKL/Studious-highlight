@@ -17,7 +17,8 @@ today=str(now.strftime('%y-%m-%d'))
 class CanvasAPI:
     request_header = {
         "Authorization": "Bearer ",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+       "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
     }
 
     def __init__(self, canvas_token: str, website_root: str):
@@ -33,8 +34,10 @@ class CanvasAPI:
         r = requests.get(self.website_root+'/api/v1/users/self', headers=self.request_header)
         r.raise_for_status()
         self.id=r.json()['id']
+        self.name=r.json()['name']
+
         print(self.id)
-        
+        print(self.name)        
         
 
     def _get_request(self, url: str, params: dict = None, attempts: int = 5) -> Tuple[str, str]:
@@ -93,13 +96,16 @@ class CanvasAPI:
         return result
     
 
-
     def get_assignments(self,course_id:str,date:str):
         params={}
         get = lambda x,y: self._get_all_pages('/api/v1/courses/%(course_id)s/%(object)s' %{'course_id':x,"object":y},params)
+        print()
+                
         assignments = get(course_id,'assignments')
         assign=[]
         for assignment in assignments:
+            print(assignment)
+            exit()
             try:
                 score=requests.get(self.website_root+'/api/v1/courses/%(course_id)s/assignments/%(assignment_id)s/submissions/%(user_id)s' %{"course_id":course_id,"assignment_id":assignment['id'],"user_id":self.id},headers=self.request_header)
                 score.raise_for_status()
@@ -124,4 +130,7 @@ class CanvasAPI:
             except HTTPError as e:
                 print(e.msg)
         return assign
-
+        
+if __name__=='__main__':
+    canvas=CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')
+    canvas.get_assignments(canvas.get_courses()[4])
