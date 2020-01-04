@@ -1,5 +1,18 @@
-{'id': 147748, 'description': '<link rel="stylesheet" href="https://instructure-uploads.s3.amazonaws.com/account_20060000000000001/attachments/1712713/css.css"><ol>\r\n<li>After watching the <a id="" class="" title="Course Introduction Video" href="https://mst.instructure.com/courses/41222/pages/course-introduction-video" target="" data-api-endpoint="https://mst.instructure.com/api/v1/courses/41222/pages/course-introduction-video" data-api-returntype="Page">course intro video </a>and looking at the <a id="" class="" title="" href="http://fep.mst.edu/" target="">FEP website</a>, write down a sentence or two describing what you feel is 
-  the most important information that the Freshmen Engineering Program provides.</li>\r\n<li>State at least one interesting fact that you learned about your instructor, after watching the <a id="" class="" title="Meet Your Instructor" href="https://mst.instructure.com/courses/41222/pages/meet-your-instructor" target="" data-api-endpoint="https://mst.instructure.com/api/v1/courses/41222/pages/meet-your-instructor" data-api-returntype="Page">instructor intro video</a>.</li>\r\n</ol>\r\n<p style="text-align: right;"><span style="color: #008000;"><img src="https://mst.instructure.com/courses/41222/files/1594588/preview?verifier=rY4ayYcUb0hDJCJBTBlz4Tnf1sYpsCTofmSCoVHP" alt="next.fw-1.png" data-api-endpoint="https://mst.instructure.com/api/v1/courses/41222/files/1594588" data-api-returntype="File">\xa0<strong>After you have submitted\xa0this reflection, click NEXT to continue.</strong></span></p><script src="https://instructure-uploads.s3.amazonaws.com/account_20060000000000001/attachments/1712712/js.js"></script>', 'due_at': '2019-08-26T04: 59: 00Z', 'unlock_at': None, 'lock_at': '2019-08-26T05: 01: 00Z', 'points_possible': 5.0, 'grading_type': 'points', 'assignment_group_id': 42179, 'grading_standard_id': None, 'created_at': '2019-08-12T13: 54: 54Z', 'updated_at': '2019-09-27T15: 05: 25Z', 'peer_reviews': False, 'automatic_peer_reviews': False, 'position': 1, 'grade_group_students_individually': False, 'anonymous_peer_reviews': False, 'group_category_id': None, 'post_to_sis': False, 'moderated_grading': False, 'omit_from_final_grade': False, 'intra_group_peer_reviews': False, 'anonymous_instructor_annotations': False, 'anonymous_grading': False, 'graders_anonymous_to_graders': False, 'grader_count': 0, 'grader_comments_visible_to_graders': True, 'final_grader_id': None, 'grader_names_visible_to_final_grader': True, 'allowed_attempts': -1, 'lock_info': {'lock_at': '2019-08-26T05: 01: 00Z', 'can_view': True, 'asset_string': 'assignment_147748'
-  }, 'secure_params': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsdGlfYXNzaWdubWVudF9pZCI6IjhjOWQyMjM5LTY5ZWYtNGU5ZC04NDIwLTBkNDdkZTI5OTg1ZiJ9.GWNeYoE_azFgPI8dEENLBON7OH4xc6h54NqRGSLs00Y', 'course_id': 41222, 'name': 'Reflect on Intro Videos', 'submission_types': ['online_text_entry'
-  ], 'has_submitted_submissions': True, 'due_date_required': False, 'max_name_length': 255, 'in_closed_grading_period': False, 'is_quiz_assignment': False, 'can_duplicate': True, 'original_course_id': None, 'original_assignment_id': None, 'original_assignment_name': None, 'original_quiz_id': None, 'workflow_state': 'published', 
-  'muted': False, 'html_url': 'https: //mst.instructure.com/courses/41222/assignments/147748', 'published': True, 'only_visible_to_overrides': False, 'locked_for_user': True, 'lock_explanation': 'This assignment was locked Aug 26 at 12:01am.', 'submissions_download_url': 'https://mst.instructure.com/courses/41222/assignments/147748/submissions?zip=1', 'anonymize_students': False}
+{
+  "grading_periods": [],
+  "meta": {
+    "pagination": {
+      "per_page": 10,
+      "last": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
+      "current": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
+      "first": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
+      "page": 1,
+      "template": "/api/v1/courses/39086/grading_periods?page={page}&per_page=10",
+      "count": 0,
+      "page_count": 1
+    },
+    "primaryCollection": "grading_periods"
+  },
+  "can_create_grading_periods": False,
+  "grading_periods_read_only": False
+}

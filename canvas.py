@@ -99,13 +99,9 @@ class CanvasAPI:
     def get_assignments(self,course_id:str,date:str):
         params={}
         get = lambda x,y: self._get_all_pages('/api/v1/courses/%(course_id)s/%(object)s' %{'course_id':x,"object":y},params)
-        print()
-                
         assignments = get(course_id,'assignments')
         assign=[]
         for assignment in assignments:
-            print(assignment)
-            exit()
             try:
                 score=requests.get(self.website_root+'/api/v1/courses/%(course_id)s/assignments/%(assignment_id)s/submissions/%(user_id)s' %{"course_id":course_id,"assignment_id":assignment['id'],"user_id":self.id},headers=self.request_header)
                 score.raise_for_status()

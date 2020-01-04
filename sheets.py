@@ -13,8 +13,9 @@ class Sheets:
         self.TEMPLATE_ID='1ORXhqhmBQ2urNkiw8LOHeX60yxtjL6QmmmazvZJouEM'
         self.POINT_SHEET='813406257'
         self.PERCENT_SHEET='2139402488'
-        self.SCOPES = ['https://www.googleapis.com/auth/spreadsheets','https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/drive.file']
+        self.SCOPES = ['https://www.googleapis.com/auth/drive.file','https://www.google']
         self.creds=None
+        self.sheetInfo={}
 
         if os.path.exists('token.pickle'):
             with open('token.pickle', 'rb') as token:
@@ -35,11 +36,13 @@ class Sheets:
         self.sheets=self.service.spreadsheets()
         self.drive=build('drive','v3',credentials=self.creds)
 
+
         
 
     def getFile(self):
         page_token = None
-        query="GS - "+self.name
+        query='GS - '+ self.name
+        tempId=None
         while True:
             response = self.drive.files().list(q="name='"+query+"'",
                                                 spaces='drive',
@@ -48,17 +51,22 @@ class Sheets:
             for file in response.get('files', []):
                 # Process change
                 print('Found file: %s (%s)' % (file.get('name'), file.get('id')))
+                self.sheetInfo['spreadsheetId']=file.get('id')
+                break
             page_token = response.get('nextPageToken', None)
             if page_token is None:
+                return False
+                print('Creating File')
                 break
-        pass
+        
+
     def createSpreadsheet(self):
         body={
             "properties":{
                 "title":'GS - '+ self.name
             }
         }
-        
+        print(self.sheets.get(spreadsheetId=self.TEMPLATE_ID).execute())
         self.sheetInfo=self.sheets.create(body=body).execute()
         
         #self.sheets.values().update(spreadsheetId=self.sheetInfo('spreadsheetId')).execute()
@@ -103,6 +111,7 @@ class Sheets:
         }
         response=self.sheets.values().batchUpdate(spreadsheetId=self.sheetInfo.get('spreadsheetId'),body=body).execute()
         print(response)
+
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.

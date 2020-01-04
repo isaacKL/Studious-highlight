@@ -15,7 +15,7 @@ class Studius:
         self.sheets=Sheets(self.canvas.name)
         self.courses=self.canvas.get_courses()
         self.classes=[]
-        self.sheets.getFile()
+        
         for course in self.courses:
             self.classes.append({
                 "name":course['name'],
@@ -29,21 +29,27 @@ class Studius:
 
             
     def initiate(self):
-        self.sheets.createSpreadsheet()
-        self.sheets.updateFormat(self.classes)
+        if not self.sheets.getFile():
+            self.sheets.createSpreadsheet()
+            self.sheets.updateFormat(self.classes)
+        
         #send to sheets to make new spreadsheet
 
-    def update(self,course=None):
+    def update(self):
         #request canvas report 
         #separate updates and corrections
         #send update to sheets
         #send correction to sheets
-        assignments=self.canvas.get_assignments(self.courses[2]['id'],self.today)
-        print(assignments)
-        print()
+        for course in self.courses:
+            assignments=self.canvas.get_assignments(courses['id'],self.today)
+            break
+            if assignments != None:
+                self.sheets.updateValues(assignments)
+        
         
                 
 if __name__=='__main__':
     me= Studius('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO')
-    #me.update()
+    me.initiate()
+    me.update()
     
