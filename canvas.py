@@ -91,41 +91,56 @@ class CanvasAPI:
 
     def get_courses(self):
         result = self._get_all_pages('/api/v1/courses',
-                                            {'state': ['available']})
-        
+                                            {'state': ['available'],'enrollment_state':'active'})
+        result.pop()
+        result.pop(0)
         return result
     
 
     def get_assignments(self,course_id:str,date:str):
         params={}
-        get = lambda x,y: self._get_all_pages('/api/v1/courses/%(course_id)s/%(object)s' %{'course_id':x,"object":y},params)
+        get = lambda x,y: self._get_all_pages('/api/v1/courses/%(course_id)s/%(item)s' %{'course_id':x,"item":y},params)
         assignments = get(course_id,'assignments')
+        load=[]
+        exams=[]
         assign=[]
         for assignment in assignments:
             try:
-                score=requests.get(self.website_root+'/api/v1/courses/%(course_id)s/assignments/%(assignment_id)s/submissions/%(user_id)s' %{"course_id":course_id,"assignment_id":assignment['id'],"user_id":self.id},headers=self.request_header)
-                score.raise_for_status()
-                score=score.json()['score']
+                
+                scoring=requests.get(self.website_root+'/api/v1/courses/%(course_id)s/assignments/%(assignment_id)s/submissions/%(user_id)s' %{"course_id":course_id,"assignment_id":assignment['id'],"user_id":self.id},headers=self.request_header)
+                scoring.raise_for_status()
+                if "score" in scoring.json():
+                    score=scoring.json()["score"]
+                
                 if score!=None:
                     score=int(score)
                 else:
                     score=-1
+                
                 assignments=collections.namedtuple("assignments",('name',"points","points_possible"),defaults='0')
                 if assignment['due_at']!=None:
                         due_date=datetime.strptime(assignment['due_at'][:10],"%Y-%m-%d")
                         due_date=str(due_date.date())
                 else:
                     due_date='999999999999'
+                    
                 if score>=0 or (int(due_date[5:7])<int(today[5:7]) and int(due_date[8:10])<int(today[8:10])):
                     name=assignment['name']
                     
                     points_possible=assignment['points_possible']
                     work=assignments(name=name,points_possible=points_possible,points=score)
+                    work_name=work[0].lower()
                     
-                    assign.append(work)
+                    if ('study' in work_name or "pre" in work_name) or not ("test" in work_name or 'exam' in work_name or "final" in work_name):
+                        assign.append(work)
+                    elif ("test" in work_name or 'exam' in work_name or "final" in work_name):
+                        exams.append(work)
+                    
             except HTTPError as e:
                 print(e.msg)
-        return assign
+        load.append(assign)
+        load.append(exams)
+        return load
         
 if __name__=='__main__':
     canvas=CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')

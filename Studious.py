@@ -6,10 +6,11 @@ import collections
 
 
 class Studius:
-        
+    
     def __init__(self,access_token:str):
         #main stuff
         self.now=datetime.now()
+        print(self.now)
         self.today=self.now.strftime('%y-%m-%d')
         self.canvas=CanvasAPI(access_token,'https://mst.instructure.com')
         self.sheets=Sheets(self.canvas.name)
@@ -19,7 +20,8 @@ class Studius:
         for course in self.courses:
             self.classes.append({
                 "name":course['name'],
-                "grading standard":course['apply_assignment_group_weights']
+                "grading standard":course['apply_assignment_group_weights'],
+                'id':course['id']
             })
         
     #def check(self):
@@ -29,9 +31,11 @@ class Studius:
 
             
     def initiate(self):
+
         if not self.sheets.getFile():
             self.sheets.createSpreadsheet()
             self.sheets.updateFormat(self.classes)
+        self.sheets.spreadsheet()
         
         #send to sheets to make new spreadsheet
 
@@ -41,10 +45,11 @@ class Studius:
         #send update to sheets
         #send correction to sheets
         for course in self.courses:
-            assignments=self.canvas.get_assignments(courses['id'],self.today)
-            break
-            if assignments != None:
-                self.sheets.updateValues(assignments)
+            assignments=self.canvas.get_assignments(course['id'],self.today)
+            if assignments[0]!= None:   
+                self.sheets.updateValues(assignments[0],course['name'])
+            if assignments[1]!=None:
+                self.sheets.updateValues(assignments[1],course['name'],True)
         
         
                 

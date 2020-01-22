@@ -1,18 +1,5 @@
 {
-  "grading_periods": [],
-  "meta": {
-    "pagination": {
-      "per_page": 10,
-      "last": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
-      "current": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
-      "first": "/api/v1/courses/39086/grading_periods?page=1&per_page=10",
-      "page": 1,
-      "template": "/api/v1/courses/39086/grading_periods?page={page}&per_page=10",
-      "count": 0,
-      "page_count": 1
-    },
-    "primaryCollection": "grading_periods"
-  },
-  "can_create_grading_periods": False,
-  "grading_periods_read_only": False
+  "range": "'CHEM 1100: INTRO/LAB SAFETY&HAZ MTR (LEC 102) FS2019'!A1",
+  "majorDimension": "ROWS",
+  "values": [["=A15"]]
 }
