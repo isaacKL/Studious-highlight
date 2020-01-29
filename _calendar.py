@@ -1,2 +1,3 @@
-x="w","x","y","z"
-print(x[1:3])
+x=read_file('_calendar.py')
+deb={"file":x}
+print(deb,"\n"+deb['name'])

@@ -6,14 +6,17 @@ import collections
 
 
 class Studius:
-    
-    def __init__(self,access_token:str):
+        
+    def __init__(self,access_token:str,oAuth):
         #main stuff
         self.now=datetime.now()
         print(self.now)
+        self.oAuth=oAuth
         self.today=self.now.strftime('%y-%m-%d')
         self.canvas=CanvasAPI(access_token,'https://mst.instructure.com')
-        self.sheets=Sheets(self.canvas.name)
+        with open(self.oAuth,'wb') as token:
+            self.token=token
+        self.sheets=Sheets(self.canvas.name,self.token)
         self.courses=self.canvas.get_courses()
         self.classes=[]
         
@@ -23,7 +26,7 @@ class Studius:
                 "grading standard":course['apply_assignment_group_weights'],
                 'id':course['id']
             })
-        
+    
     #def check(self):
 
         #see if gs- [name] exist

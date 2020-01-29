@@ -4,11 +4,12 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-
+import builtins
 
 
 class Sheets:
-    def __init__(self,name):
+
+    def __init__(self,name,token):
         self.name=name
         self.enums={"COLUMNS","PROJECT","INTERSECTING_LOCATION"}
         self.TEMPLATE_ID='1ORXhqhmBQ2urNkiw8LOHeX60yxtjL6QmmmazvZJouEM'
@@ -24,27 +25,13 @@ class Sheets:
                         'https://www.googleapis.com/auth/gmail.readonly']
         self.creds=None
         self.sheetInfo={}
-
-        if os.path.exists('token.pickle'):
-            with open('token.pickle', 'rb') as token:
-                self.creds = pickle.load(token)
-        # If there are no (valid) credentials available, let the user log in.
-        if not self.creds or not self.creds.valid:
-            if self.creds and self.creds.expired and self.creds.refresh_token:
-                self.creds.refresh(Request())
-            else:
-                flow =  InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', scopes=self.SCOPES)
-                self.creds = flow.run_local_server(port=0)
-            # Save the credentials for the next run
-            with open('token.pickle', 'wb') as token:
-                pickle.dump(self.creds, token)
-
+        # Save the credentials for the next run
+        with open('token.pickle', 'wb') as token:
+            pickle.dump(self.creds, token)
         self.service = build('sheets', 'v4', credentials=self.creds)
         self.sheets=self.service.spreadsheets()
         self.drive=build('drive','v3',credentials=self.creds)
-        #self.gmail=build('gmail','v1',credentials=self.creds)
-
+        #self.gmail=build('gmail','v1',credentials=self.creds) 
 
 
     def getFile(self):
@@ -180,6 +167,6 @@ class Sheets:
                 print('%s, %s' % (row[0], row[4]))'''
 
 if __name__ == '__main__':
-    sheets=Sheets()
-    sheets.createSpreadsheet("Isaac Coppage")
+    sheets=Sheets("Isaac Coppage")
+    sheets.createSpreadsheet()
     #sheets.updateValues()
