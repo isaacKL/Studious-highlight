@@ -1,0 +1,32 @@
+019-09-09T17: 50: 00Z',
+%20'grading_standard_id':%204313,
+%20'is_public':%20False,
+%20'created_at':%20'2019-02-15T12: 22: 22Z',
+%20'course_code':%20'MST-MATH-1160-110-71299-FS2019',
+%20'default_view':%20'wiki',
+%20'root_account_id':%201,
+%20'enrollment_term_id':%2090,
+%20'license':%20'private',
+%20'grade_passback_setting':%20None,
+%20'end_at':%20None,
+%20'public_syllabus':%20False,
+%20'public_syllabus_to_auth':%20False,
+%20'storage_quota_mb':%20500,
+%20'is_public_to_auth_users':%20False,
+%20'apply_assignment_group_weights':%20True,
+%20'calendar':%20%7B'ics':%20'https: //mst.instructure.com/feeds/calendars/course_88SrxJJKuLEKSqalJY1D0oNqMaymWN9boKaIhYRD.ics
+'%7D,%20'time_zone':%20'America/Chicago',
+%20'blueprint':%20False,
+%20'enrollments':%20
+[
+    %7B'type':%20'student',
+    %20'role':%20'StudentEnrollment',
+    %20'role_id':%208,
+    %20'user_id':%2037971,
+    %20'enrollment_state':%20'active',
+    %20'limit_privileges_to_course_section':%20False%7D
+],
+%20'hide_final_grades':%20True,
+%20'workflow_state':%20'available',
+%20'restrict_enrollments_to_course_dates':%20False,
+%20'overridden_course_visibility':%20''%7D/assignment_groups
