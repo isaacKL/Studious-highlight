@@ -3,19 +3,21 @@ from sheets import Sheets
 import Desktop
 from datetime import datetime
 import collections
+import time
+import pickle
+import datetime as t
 
-
-class Studius:
+class Studious:
         
-    def __init__(self,access_token:str,oAuth):
+    def __init__(self,access_token:str,oAuth,email):
         #main stuff
         self.now=datetime.now()
         print(self.now)
         self.oAuth=oAuth
+        self.email=email
         self.today=self.now.strftime('%y-%m-%d')
         self.canvas=CanvasAPI(access_token,'https://mst.instructure.com')
-        with open(self.oAuth,'wb') as token:
-            self.token=token
+        self.token=oAuth
         self.sheets=Sheets(self.canvas.name,self.token)
         self.courses=self.canvas.get_courses()
         self.classes=[]
@@ -54,10 +56,16 @@ class Studius:
             if assignments[1]!=None:
                 self.sheets.updateValues(assignments[1],course['name'],True)
         
+        _id=self.sheets.getFile(True)
+        self.sheets.transferPermission(_id,self.email)
+        return time.ctime()
         
+    
                 
 if __name__=='__main__':
-    me= Studius('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO')
+    c=open('token.pickle','rb')
+
+    me= Studious('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO',pickle.load(c))
     me.initiate()
     me.update()
     
