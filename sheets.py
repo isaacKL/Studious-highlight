@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import builtins
-import  time
+
 
 class Sheets:
 
@@ -23,17 +23,18 @@ class Sheets:
                         'https://www.googleapis.com/auth/drive.metadata.readonly',
                         'https://www.googleapis.com/auth/drive.file',
                         'https://www.googleapis.com/auth/gmail.readonly']
-        self.creds=token 
+        self.creds=None
         self.sheetInfo={}
-
         # Save the credentials for the next run
-        #self.creds="AIzaSyCifncjO5VqPxgEkIEzWTmzjvRwCS-1Evc"
+        with open('token.pickle', 'wb') as token:
+            pickle.dump(self.creds, token)
         self.service = build('sheets', 'v4', credentials=self.creds)
         self.sheets=self.service.spreadsheets()
         self.drive=build('drive','v3',credentials=self.creds)
         #self.gmail=build('gmail','v1',credentials=self.creds) 
 
-    def getFile(self,file_id=False):
+
+    def getFile(self):
         page_token = None
         query='GS - '+ self.name
         tempId=None
@@ -47,8 +48,6 @@ class Sheets:
                 print('Found file: %s (%s)' % (file.get('name'), file.get('id')))
                 if file.get('name')==query:
                     self.sheetInfo['spreadsheetId']=file.get('id')
-                    if file_id:
-                        return file.get('id')
                     return True
 
             page_token = response.get('nextPageToken', None)
@@ -56,6 +55,9 @@ class Sheets:
                 print('Creating File')
 
                 return False
+
+
+
 
     def createSpreadsheet(self):
         body={
@@ -93,47 +95,9 @@ class Sheets:
             body={'requests':request}
             x=self.sheets.batchUpdate(spreadsheetId=self.sheetInfo['spreadsheetId'],body=body).execute()
             
+
     def spreadsheet(self):
         self.sheetInfo=self.sheets.get(spreadsheetId=self.sheetInfo['spreadsheetId']).execute()
-
-    def total(self,cell,course):
-        if cell ==  -1:
-            print('No new stuff')
-            return["=B9","=B9"]
-        else:
-            abc=["A","B","C","D","E","F","G","H","I","J","K","L"]
-            letter1=abc[abc.index(cell[0])+1]
-            letter2=abc[abc.index(cell[0])+2]
-            rec_points="=sum("+letter1+"9:"+letter1+str(int(cell[1])-1)+")"
-            total_points="=sum("+letter2+"9:"+letter2+str(int(cell[1])-1)+")"
-            t=[[rec_points,total_points]]
-            request = {
-                "valueInputOption": "USER_ENTERED",
-                "data": [{
-                    "range": course+"!"+letter1+cell[1]+":"+letter2+cell[1],
-                    "majorDimension": 'ROWS',
-                    "values": t
-                }],
-                "includeValuesInResponse": True,
-            }
-            response=self.sheets.values().batchUpdate(spreadsheetId=self.sheetInfo['spreadsheetId'],body=request).execute()
-            
-            
-             # Call the Sheets API
-        '''sheet = service.spreadsheets()
-        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                    range=SAMPLE_RANGE_NAME).execute()
-        values = result.get('values', [])
-
-        if not values:
-            print('No data found.')
-        else:
-            print('Name, Major:')
-            for row in values:
-                # Print columns A and E, which correspond to indices 0 and 4.
-                print('%s, %s' % (row[0], row[4]))'''
-
-
 
     def updateValues(self,assignments,course,exam=False):
         #assignment{name, points,points received,class}
@@ -141,7 +105,7 @@ class Sheets:
         _hidden=4 if not exam else 5
         print(course+": ","Exams" if exam else "Homework",len(assignments))
         #print(assignments)
-        cell=-1
+        
         request=[]
         response_id=9
         _start="A" if not exam else "E"
@@ -153,9 +117,7 @@ class Sheets:
         response=self.sheets.values().get(spreadsheetId=self.sheetInfo['spreadsheetId'],range=course+"!Q"+str(_hidden),valueRenderOption="FORMULA").execute()
         if not (response.get('values'))==None:
             response_id=int(response.get('values')[0][0][2:])-2
-        cell=[response.get('values')[0][0][1],str(int(response.get('values')[0][0][2:]))]
-        print(cell)
-      
+            
         request.append({
             'insertRange': {
                 "range": {
@@ -170,6 +132,7 @@ class Sheets:
         })
         body={'requests':request}
         self.sheets.batchUpdate(spreadsheetId=self.sheetInfo['spreadsheetId'],body=body).execute()
+        
         request = {
             "valueInputOption": "USER_ENTERED",
             "data": [{
@@ -180,43 +143,29 @@ class Sheets:
             "includeValuesInResponse": False,
         }
         response=self.sheets.values().batchUpdate(spreadsheetId=self.sheetInfo['spreadsheetId'],body=request).execute()
-        
-        self.total(cell,course)
+
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    def callback(self,request_id, response, exception):
-        if exception:
-            # Handle error
-            print(exception)
+    def cell(self,cell,value=None):
+        if value ==  None:
+            print('No value')
         else:
-            print("Permission Id: %s" % response.get('id'))
+            return self.sheets
+        # Call the Sheets API
+        '''sheet = service.spreadsheets()
+        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                                    range=SAMPLE_RANGE_NAME).execute()
+        values = result.get('values', [])
 
-    def transferPermission(self,file_id,transfer_email):
-                
-        batch = self.drive.new_batch_http_request(callback=self.callback)
-        user = {
-            'type': 'user',
-            'role': 'owner',
-            'emailAddress': transfer_email
-        }
-        jose = {
-            'type': 'user',
-            'role': 'writer',
-            'emailAddress': 'ic77f@umsystem.edu'
-        }
-        batch.add(self.drive.permissions().create(
-                fileId=file_id,
-                body=user,
-                fields='id',
-        ))
-        batch.add(self.drive.permissions().create(
-                fileId=file_id,
-                body=jose,
-                fields='id',
-        ))        
-        batch.execute()
-    
+        if not values:
+            print('No data found.')
+        else:
+            print('Name, Major:')
+            for row in values:
+                # Print columns A and E, which correspond to indices 0 and 4.
+                print('%s, %s' % (row[0], row[4]))'''
+
 if __name__ == '__main__':
     sheets=Sheets("Isaac Coppage")
     sheets.createSpreadsheet()
