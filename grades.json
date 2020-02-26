@@ -1,0 +1,102 @@
+[
+    [
+        'Math Formatted Excel Sheet', 'Input Column', 'Directions'
+    ],
+    [],
+    [
+        'MyMathLab Percentage in decimal: ', '100.00%', 'This what you have scored on mymathlab. Can be found on mymathlab'
+    ],
+    [
+        'Amount of Points HW Worth', '20', 'This can be found on your syllabus'
+    ],
+    [
+        'Your HW Point Total', '20', 'Your Current Standing in this Catecory'
+    ],
+    [],
+    [
+        'Quiz 1', '10', 'You may have more or less than 8 quizes'
+    ],
+    [
+        'Quiz 2', '10', 'The syllabus will tell you how many quizes will be counted'
+    ],
+    [
+        'Quiz 3 ', '10', 'Just delete rows or add them to fit the criteria of the syllabus'
+    ],
+    [
+        'Quiz 4', '10', 'Make sure you drop the lowest # of quizes according to the syllabus'
+    ],
+    [
+        'Quiz 5', '10'
+    ],
+    [
+        'Quiz 6', '10'
+    ],
+    [
+        'Quiz 7', '10'
+    ],
+    [
+        'Quiz 8', '10'
+    ],
+    [
+        'Total Quiz Points ', '80', 'Your Current Standing in this Catecory'
+    ],
+    [],
+    [
+        'Clicker Points', '', 'Use this row if you know exactly how many points you have'
+    ],
+    [
+        'or '
+    ],
+    [
+        'Clicker Percentage in decimal', '1', 'Use this row if you know only the percentage of what clicker questions you have gotten right'
+    ],
+    [
+        'Amount of Points Clicker Worth', '20'
+    ],
+    [
+        'Your Clicker Point Total', '20', 'Your Current Standing in this Catecory'
+    ],
+    [],
+    [
+        'Exam 1', '100', 'Exams are out of points so just put your score in as it is on the test'
+    ],
+    [
+        'Exam 2', '100', 'The yellow box and blue box are formatted. Don’t mess with them.'
+    ],
+    [
+        'Exam 3', '100', 'The orange box is for the end of the semester to  help determine what you '
+    ],
+    [
+        'Exam 4', '100', 'need to get your desired grade.'
+    ],
+    [
+        'Lowest Exam Score Out of 1, 2, 3,4', '200'
+    ],
+    [
+        'What you want on Final Exam ', '0'
+    ],
+    [
+        'Total Points from Exams', '600', 'Your Current a Standing in this Catecory'
+    ],
+    [],
+    [
+        'Various Other Points (Bonus?)', '0', 'This is for any points that are unnoaccounted for in the other categories'
+    ],
+    [],
+    [
+        'Total Points Needed For Desired Grade', '670', 'You get this from the syllabus'
+    ],
+    [
+        'Your Total Points', '720', 'This box is formatted. Don’t mess with it. Green means yo u get the grade'
+    ],
+    [],
+    [
+        'Current Total Points You Have', '69', 'This box you need to add all of the points yeou have gotten and input that number'
+    ],
+    [
+        'Current Total Points that have been Available', '100', 'This box ias the max amount of points that are availble to this point'
+    ],
+    [
+          'Current Percentage', '69', 'This is your curcrent percentage with a color scale FORMATTED'
+    ]
+]

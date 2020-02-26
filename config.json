@@ -1,0 +1,12 @@
+{
+    "configuration":{
+        "database":{
+            "name":"test.db",
+            "location":"C:\\Users\\icmuz\\Documents\\GitHub\\Studious-highlight"
+        },
+        "lastUpdate":"time-stamp",
+        "queue":{
+            "location":"C:\\Users\\icmuz\\Documents\\GitHub\\Studious-highlight"
+        }
+    }
+}
