@@ -12,7 +12,7 @@ class Sheets:
     def __init__(self,name,token):
         self.name=name
         self.enums={"COLUMNS","PROJECT","INTERSECTING_LOCATION"}
-        self.TEMPLATE_ID='1ORXhqhmBQ2urNkiw8LOHeX60yxtjL6QmmmazvZJouEM'
+        self.TEMPLATE_ID=''
         self.POINT_SHEET='813406257'
         self.POINT_SHEET_METADATA={"Homework":11,"Exam":11,"Other":11}
         self.PERCENT_SHEET='2139402488'

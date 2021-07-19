@@ -13,9 +13,9 @@ class ErrorHandler:
         #request which step in the procoess the error was caught
     
     def send(self):
-        #send error to log some form of cloud based document
+        #send error to log in cloud drive
 
     def reboot(self):
-        #acquire inputs of function and add error bypass to each function
-        #Each functio logs bypass' 
+        #acquire inputs of function and add function bypass 
+        #Each function logs bypass' 
         

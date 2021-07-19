@@ -3,14 +3,14 @@ import Database
 from googleapiclient.discovery import build
 
 def check():
-    #check google speadsheet
-    creds='AIzaSyCYOl9KqI8IyvQo7l1GgHoXH43njHjfoLU'
+    #check google speadsheet add creditional and spreadsheet ID
+    creds=''
     spreadsheet_id=""
     service = build('sheets', 'v4',developerKey=creds)
     sheets=service.spreadsheets()
     _range="A2:F110"
     drive=build('drive','v3',developerKey=creds)
-    result = sheet.values().get(spreadsheetId=#INSERT IDIDIDIDID,
+    result = sheets.values().get(spreadsheetId=32,
                                 range=_range).execute()
     values = result.get('values', [])
 
@@ -34,6 +34,7 @@ def check():
         db insert'''
 
 def process():
+    #
     #routine run through studious with db listing
     x=1
 if __name__=="__main__":

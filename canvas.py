@@ -1,10 +1,11 @@
-import requests
+import requests 
 from requests.exceptions import HTTPError
 from urllib.parse import urljoin
 import logging
 import time
 from typing import Tuple
 from datetime import datetime
+import json
 import collections
 
 
@@ -31,6 +32,7 @@ class CanvasAPI:
             website_root = "https://{}".format(website_root)
 
         self.website_root = website_root
+     
         r = requests.get(self.website_root+'/api/v1/users/self', headers=self.request_header)
         r.raise_for_status()
         self.id=r.json()['id']
@@ -141,7 +143,29 @@ class CanvasAPI:
         load.append(assign)
         load.append(exams)
         return load
+    def enrollment(self,index):
+        result = self._get_all_pages('/api/v1/users/'+str(self.id)+"/enrollments",{'enrollment_state':'active','enrollment':index})
+
+        
+        return result
+    def fileupload(self,course_id,assignment_id,file):
+ 
+        data={'name':file,
+            'parent_folder_path':'/'}
+        response=requests.post(url=self.website_root+'/api/v1/users/self/files',data=data,headers={'Authorization':self.request_header['Authorization']})
+        #response=requests.post(self.website_root+'/api/v1/courses/:course_id/assignments/:assignment_id/submissions',self.request_header,post)
+      
+        response=response.json()['upload_url']
+        response = requests.post(response, files={"file": open(file, 'rb')})
+        print("Status Code for "+file+":",response.json()['location'])
+        
+    def turnInFile(self,file,assignment_id):
+        pass
+
         
 if __name__=='__main__':
-    canvas=CanvasAPI('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO','https://mst.instructure.com')
-    canvas.get_assignments(canvas.get_courses()[4])
+    canvas=CanvasAPI('canvas-code','https://mst.instructure.com')
+    #today=datetime.now().strftime('%y-%m-%d')
+    #ass=canvas.get_assignments(canvas.get_courses()[0],today)[0]
+    course=canvas.get_courses()[0]
+    canvas.fileupload(58065,248446,'profile_pic.jpg')

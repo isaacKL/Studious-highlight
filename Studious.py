@@ -57,7 +57,7 @@ class Studius:
         
                 
 if __name__=='__main__':
-    me= Studius('2006~hvjl4mDeAR2jYoxOYWkCbgp5Xpm7NSMCnNG9SRJ7hscjc6k3xzA6Aq4vW9TxtuRO')
+    me= Studius('')
     me.initiate()
     me.update()
     

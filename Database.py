@@ -6,9 +6,9 @@ class Database:
         #self.check(info['location'],info['name'])
         self.connectionString= (
             'DRIVER={MySQL ODBC 8.0 ANSI Driver};'
-            'SERVER=studious.col7oouaxi6f.us-east-1.rds.amazonaws.com;'
-            'UID=IC_DEV;'
-            'PWD=db_instance;'
+            'SERVER='
+            'UID=uid'
+            'PWD=password123'
             'Port=3437'
             'charset=utf8mb4;'
         )
@@ -43,5 +43,5 @@ class Database:
 
 if __name__ == "__main__":
     db= Database({"name":"hi","location":"yrs"})
-    db.create_connection(r"C:\\Users\icmuz\Documents\Studious.accdb")
+    db.create_connection("Studious.accdb")
     

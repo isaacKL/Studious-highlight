@@ -44,7 +44,7 @@ class Token:
                 self.creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
             with open('token.pickle', 'wb') as token:
-                join("C\\%Users%\\%User%\\downloads",token)
+                join("C\\Users\\%{User}\\downloads",token)
                 pickle.dump(self.creds, token)
 
 if __name__=="__main__":
